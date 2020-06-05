@@ -185,7 +185,7 @@
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <description>The number of “user asserts” that have occurred since the last time the MongogDB process started. These are errors that user may generate, such as out of disk space or duplicate key. You can prevent these assertions by fixing a problem with your application or deployment. Check the MongoDB log for more information.</description>
+                    <description>The number of an user asserts that have occurred since the last time the MongogDB process started. These are errors that user may generate, such as out of disk space or duplicate key. You can prevent these assertions by fixing a problem with your application or deployment. Check the MongoDB log for more information.</description>
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
@@ -843,12 +843,12 @@
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>MongoDB::memory::mappedWithJournal</name>
+                    <name>MongoDB::memory::bits</name>
                     <type>2</type>
                     <snmp_community/>
                     <multiplier>1</multiplier>
                     <snmp_oid/>
-                    <key>mongodb.memory.mappedWithJournal</key>
+                    <key>mongodb.memory.bits</key>
                     <delay>0</delay>
                     <history>28</history>
                     <trends>365</trends>
@@ -875,9 +875,7 @@
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <description>Only for the MMAPv1 storage engine.&#13;
-&#13;
-The amount of mapped memory, in megabytes (MB), including the memory used for journaling. This value will always be twice the value of mem.mapped. This field is only included if journaling is enabled.</description>
+                    <description></description>
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
@@ -1534,48 +1532,6 @@ The amount of mapped memory, in megabytes (MB), including the memory used for jo
                     <valuemap/>
                     <logtimefmt/>
                 </item>
-                <item>
-                    <name>MongoDB::storageEngine</name>
-                    <type>2</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>mongodb.storageEngine</key>
-                    <delay>0</delay>
-                    <history>28</history>
-                    <trends>0</trends>
-                    <status>0</status>
-                    <value_type>1</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>MongoDB</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                    <logtimefmt/>
                 </item>
                 <item>
                     <name>MongoDB::Wired Tiger Total Cache</name>
@@ -2512,18 +2468,6 @@ Only present when using the mmapv1 storage engine.</description>
                                 <graph_item>
                                     <sortorder>2</sortorder>
                                     <drawtype>0</drawtype>
-                                    <color>2774A4</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>7</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template MongoDB</host>
-                                        <key>mongodb.stats.nsSizeMB[{#MONGODBNAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>3</sortorder>
-                                    <drawtype>0</drawtype>
                                     <color>EE00EE</color>
                                     <yaxisside>0</yaxisside>
                                     <calc_fnc>7</calc_fnc>
@@ -2531,6 +2475,29 @@ Only present when using the mmapv1 storage engine.</description>
                                     <item>
                                         <host>Template MongoDB</host>
                                         <key>mongodb.stats.storageSize[{#MONGODBNAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>3</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>2774A4</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>7</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template MongoDB</host>
+                                        <key>mongodb.stats.fsUsedSize[{#MONGODBNAME}]</key>
+                                    </item>
+                                </graph_item>
+                                     <sortorder>4</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>27EEA4</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>7</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template MongoDB</host>
+                                        <key>mongodb.stats.fsTotalSize[{#MONGODBNAME}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -3443,7 +3410,7 @@ and {Template MongoDB:mongodb.priority.last()}=0</expression>
                     <type>0</type>
                     <item>
                         <host>Template MongoDB</host>
-                        <key>mongodb.memory.mappedWithJournal</key>
+                        <key>mongodb.memory.bits</key>
                     </item>
                 </graph_item>
                 <graph_item>
