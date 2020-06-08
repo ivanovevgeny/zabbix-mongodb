@@ -19,7 +19,7 @@ class MongoDB(object):
     # pylint: disable=too-many-instance-attributes
     def __init__(self):
         self.mongo_host = "localhost"
-        self.mongo_port = 27101
+        self.mongo_port = 27017
         self.mongo_db = ["admin", ]
         self.mongo_user = None
         self.mongo_password = None
@@ -180,10 +180,14 @@ class MongoDB(object):
             self.get_db_names()
         if self.__dbnames is not None:
             for mongo_db in self.__dbnames:
+                isAdminDb = mongo_db == 'admin'
+                metricsList = ['storageSize', 'ok', 'avgObjSize', 'fileSize', 'dataSize', 'indexSize']
+                if isAdminDb: 
+                    metricsList = ['storageSize', 'ok', 'avgObjSize', 'fileSize', 'dataSize', 'indexSize', 'fsUsedSize', 'fsTotalSize']
                 db_handler = self.__conn[mongo_db]
                 dbs = db_handler.command('dbstats')
                 for k, v in dbs.items():
-                    if k in ['storageSize', 'ok', 'avgObjSize', 'fileSize', 'dataSize', 'indexSize', 'fsUsedSize', 'fsTotalSize']:
+                    if k in metricsList:
                         self.add_metrics('mongodb.stats.' + k + '[' + mongo_db + ']', int(v))
     def close(self):
         """close connection to mongo"""

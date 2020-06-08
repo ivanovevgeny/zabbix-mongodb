@@ -19,7 +19,7 @@ class MongoDB(object):
     # pylint: disable=too-many-instance-attributes
     def __init__(self):
         self.mongo_host = "localhost"
-        self.mongo_port = 27030
+        self.mongo_port = 27017
         self.mongo_db = ["admin", ]
         self.mongo_user = None
         self.mongo_password = None
