@@ -181,9 +181,9 @@ class MongoDB(object):
         if self.__dbnames is not None:
             for mongo_db in self.__dbnames:
                 isAdminDb = mongo_db == 'admin'
-                metricsList = ['storageSize', 'ok', 'avgObjSize', 'fileSize', 'dataSize', 'indexSize']
+                metricsList = ['storageSize', 'ok', 'avgObjSize', 'dataSize', 'indexSize']
                 if isAdminDb: 
-                    metricsList = ['storageSize', 'ok', 'avgObjSize', 'fileSize', 'dataSize', 'indexSize', 'fsUsedSize', 'fsTotalSize']
+                    metricsList = ['storageSize', 'ok', 'avgObjSize', 'dataSize', 'indexSize', 'fsUsedSize', 'fsTotalSize']
                 db_handler = self.__conn[mongo_db]
                 dbs = db_handler.command('dbstats')
                 for k, v in dbs.items():

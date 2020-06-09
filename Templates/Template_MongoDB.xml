@@ -1758,7 +1758,7 @@
                     <history>28</history>
                     <trends>365</trends>
                     <status>0</status>
-                    <value_type>3</value_type>
+                    <value_type>TEXT</value_type>
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
@@ -1990,52 +1990,6 @@
                             <privatekey/>
                             <port/>
                             <description>The total size in bytes of the uncompressed data held in this database. The scale argument affects this value. The dataSize will decrease when you remove documents.</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>MongoDB</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>MongoDB::{#MONGODBNAME}::file size</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>mongodb.stats.fileSize[{#MONGODBNAME}]</key>
-                            <delay>0</delay>
-                            <history>28</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>B</units>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>The total size in bytes of the data files that hold the database. This value includes preallocated space and the padding factor. The value of fileSize only reflects the size of the data files for the database and not the namespace file.&#13;
-&#13;
-The scale argument affects this value. Only present when using the mmapv1 storage engine.</description>
                             <inventory_link>0</inventory_link>
                             <applications>
                                 <application>
@@ -2492,18 +2446,6 @@ The scale argument affects this value. Only present when using the mmapv1 storag
                                     <item>
                                         <host>Template MongoDB</host>
                                         <key>mongodb.stats.dataSize[{#MONGODBNAME}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>F63100</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>7</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template MongoDB</host>
-                                        <key>mongodb.stats.fileSize[{#MONGODBNAME}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
